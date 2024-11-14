@@ -1,8 +1,11 @@
 def send_email(message, recipient, *, sender="university.help@gmail.com"):
     #Создание функции send_email, которая принимает 2 обычных аргумента: message(сообщение), recipient(получатель) и 1 обязательно именованный аргумент со значением по умолчанию sender = "university.help@gmail.com".
     if not (sender.endswith((".com", ".ru", ".net")) and recipient.endswith((".com", ".ru", ".net"))):
-    #Условие если строки recipient и sender не содержит "@" или не оканчивается на ".com"/".ru"/".net", то вывести на экран(в консоль) строку: "Невозможно отправить письмо с адреса <sender> на адрес <recipient>"
+    #Условие если не оканчивается на ".com"/".ru"/".net", то вывести на экран(в консоль) строку: "Невозможно отправить письмо с адреса <sender> на адрес <recipient>"
         print('Невозможно отправить письмо с адреса', sender, 'на адрес', recipient)
+    elif '@' not in recipient and '@' not in sender:
+    #Условие если строки recipient и sender не содержит "@" то вывести сообщение
+        print("Невозможно отправить письмо с адреса", sender, "на адрес", recipient)
     elif sender == recipient:
     #Условие если же sender и recipient совпадают, то вывести "Нельзя отправить письмо самому себе!"
         print("Нельзя отправить письмо самому себе!")
